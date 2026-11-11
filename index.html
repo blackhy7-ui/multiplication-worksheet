@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>두 자릿수 X 한 자릿수 세로셈 곱셈 연습장 🐰✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Nanum+Square+Round:wght@400;600;700;800&family=Jua&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 웹 전용 상단 헤더 / 툴바 -->
+  <header class="no-print app-header">
+    <div class="header-container">
+      <div class="title-area">
+        <span class="deco-icon floating">🌸</span>
+        <h1 class="app-title">초등 2학년 두 자릿수 곱셈 연습장</h1>
+        <span class="deco-icon floating-delayed">⭐</span>
+      </div>
+      <p class="subtitle">구름 위 포근한 세로셈 수학 공부방 🧸☁️</p>
+      
+      <!-- 컨트롤 버튼 모음 -->
+      <div class="toolbar">
+        <button id="btn-generate" class="btn btn-primary" title="새로운 45문제를 무작위로 만듭니다">
+          <span class="btn-icon">🎲</span> 새 문제 만들기
+        </button>
+        <button id="btn-check" class="btn btn-success" title="입력한 답을 채점합니다">
+          <span class="btn-icon">✨</span> 채점하기
+        </button>
+        <button id="btn-toggle-answer" class="btn btn-secondary" title="정답을 확인하거나 가립니다">
+          <span class="btn-icon">👀</span> <span id="answer-toggle-text">정답 보기</span>
+        </button>
+        <button id="btn-clear" class="btn btn-outline" title="입력한 내용을 모두 지웁니다">
+          <span class="btn-icon">🔄</span> 다시 풀기
+        </button>
+        <button id="btn-print" class="btn btn-accent" title="A4 용지 5페이지 학습지 및 답지를 출력합니다">
+          <span class="btn-icon">🖨️</span> A4 학습지 인쇄
+        </button>
+      </div>
+
+      <!-- 페이지 퀵 이동 탭 -->
+      <nav class="page-nav">
+        <span class="nav-label">바로가기:</span>
+        <a href="#page-1" class="page-link">1쪽</a>
+        <a href="#page-2" class="page-link">2쪽</a>
+        <a href="#page-3" class="page-link">3쪽</a>
+        <a href="#page-4" class="page-link">4쪽</a>
+        <a href="#page-5" class="page-link">5쪽</a>
+        <a href="#page-answer" class="page-link answer-link">답지(정답표)</a>
+      </nav>
+
+      <!-- 채점 결과 배너 (채점 시 표시) -->
+      <div id="score-banner" class="score-banner hidden">
+        <div class="score-card">
+          <span class="score-icon">🎉</span>
+          <span id="score-text">참 잘했어요! 45문제 중 45문제를 맞혔어요!</span>
+          <button id="btn-close-banner" class="btn-close">✕</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 메인 학습지 영역 (5페이지 + 1답지) -->
+  <main class="worksheet-container" id="worksheet-container">
+    <!-- 자바스크립트로 5개 페이지(각 9문제)와 답지 페이지가 동적으로 렌더링됩니다 -->
+  </main>
+
+  <!-- 웹 전용 푸터 -->
+  <footer class="no-print app-footer">
+    <p>포근하고 즐거운 초등학교 수학 학습을 응원합니다 🎈 퐁퐁 구름 수학</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

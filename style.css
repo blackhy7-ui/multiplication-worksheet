@@ -1,0 +1,711 @@
+/* ==========================================================================
+   동화풍 감성 테마: 부드러움, 순수, 아기, 포근함
+   색상:
+   - 배경: #FFF5F5 (베이비 핑크 화이트)
+   - 텍스트: #7B6B8D (소프트 라벤더 그레이)
+   - 강조: #FFB5C2 (베이비 핑크), #B5D8F7 (베이비 블루), #FFEAA7 (소프트 옐로우)
+   ========================================================================== */
+
+:root {
+  --bg-color: #FFF5F5;
+  --text-main: #7B6B8D;
+  --text-dark: #584B68;
+  --accent-pink: #FFB5C2;
+  --accent-pink-dark: #F098A8;
+  --accent-blue: #B5D8F7;
+  --accent-blue-dark: #91C1ED;
+  --accent-yellow: #FFEAA7;
+  --accent-green: #C1E7C4;
+  --card-bg: #FFFFFF;
+  --border-soft: #F3D9E2;
+  --border-focus: #FFA4B4;
+  --box-bg: #FFF9FA;
+  --shadow-soft: 0 8px 24px rgba(255, 181, 194, 0.25);
+  --shadow-card: 0 4px 16px rgba(123, 107, 141, 0.08);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nanum Square Round', 'Gaegu', 'Jua', -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  background-image: 
+    radial-gradient(#FFE5EC 1.5px, transparent 1.5px), 
+    radial-gradient(#E8F3FD 1.5px, #FFF5F5 1.5px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* ==========================================================================
+   헤더 및 상단 툴바
+   ========================================================================== */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 245, 245, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px dashed var(--accent-pink);
+  padding: 16px 20px;
+  box-shadow: 0 4px 20px rgba(255, 181, 194, 0.2);
+}
+
+.header-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.app-title {
+  font-family: 'Jua', 'Nanum Square Round', sans-serif;
+  font-size: 2rem;
+  color: #6C557E;
+  letter-spacing: -0.5px;
+  text-shadow: 2px 2px 0px #FFE5EB;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.floating {
+  animation: floatAnim 3s ease-in-out infinite;
+  display: inline-block;
+  font-size: 1.6rem;
+}
+
+.floating-delayed {
+  animation: floatAnim 3.5s ease-in-out 0.8s infinite;
+  display: inline-block;
+  font-size: 1.6rem;
+}
+
+@keyframes floatAnim {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(4deg); }
+}
+
+/* 버튼 툴바 */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Nanum Square Round', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 10px rgba(123, 107, 141, 0.12);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(123, 107, 141, 0.18);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: var(--accent-pink);
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(170, 70, 90, 0.25);
+}
+.btn-primary:hover {
+  background-color: var(--accent-pink-dark);
+}
+
+.btn-success {
+  background-color: #9DE0A6;
+  color: #2D6336;
+}
+.btn-success:hover {
+  background-color: #8CD696;
+}
+
+.btn-secondary {
+  background-color: var(--accent-yellow);
+  color: #7D6319;
+}
+.btn-secondary:hover {
+  background-color: #F8DF94;
+}
+
+.btn-outline {
+  background-color: #FFFFFF;
+  color: var(--text-main);
+  border: 1.5px solid var(--border-soft);
+}
+.btn-outline:hover {
+  background-color: #FFF0F3;
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent-blue) 100%);
+  color: #4A3E59;
+}
+
+/* 페이지 바로가기 */
+.page-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 0.9rem;
+}
+
+.nav-label {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.page-link {
+  text-decoration: none;
+  color: var(--text-main);
+  background: #FFFFFF;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border-soft);
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.page-link:hover {
+  background: var(--accent-blue);
+  color: #2A4866;
+  border-color: var(--accent-blue);
+}
+
+.page-link.answer-link {
+  background: #FFF0F5;
+  color: #C85075;
+  border-color: var(--accent-pink);
+}
+
+/* 채점 점수 배너 */
+.score-banner {
+  margin-top: 14px;
+}
+
+.score-banner.hidden {
+  display: none;
+}
+
+.score-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #FFFFFF;
+  border: 2px solid var(--accent-pink);
+  padding: 10px 20px;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(255, 181, 194, 0.4);
+  font-weight: 700;
+  color: #554466;
+  font-size: 1.05rem;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #A695B5;
+  padding: 0 4px;
+}
+
+/* ==========================================================================
+   학습지 본문 (페이지 컨테이너)
+   ========================================================================== */
+.worksheet-container {
+  max-width: 960px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* 개별 A4 시트 카드 스타일 (웹 화면) */
+.page-sheet {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 40px 36px 36px 36px;
+  border: 2px solid var(--border-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 동화풍 모서리 데코 장식 */
+.page-sheet::before {
+  content: "☁️";
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  font-size: 1.5rem;
+  opacity: 0.8;
+}
+
+.page-sheet::after {
+  content: "⭐";
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 1.3rem;
+  opacity: 0.8;
+}
+
+/* 페이지 헤더 */
+.sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px dashed #F8D5DE;
+  padding-bottom: 16px;
+  margin-bottom: 30px;
+}
+
+.sheet-title-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.sheet-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: #FFF0F3;
+  color: #E26D85;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 6px;
+  border: 1px solid #FFCAD4;
+}
+
+.sheet-title {
+  font-family: 'Jua', 'Nanum Square Round', sans-serif;
+  font-size: 1.5rem;
+  color: #534265;
+}
+
+.sheet-meta-info {
+  display: flex;
+  gap: 16px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #8C7B9E;
+}
+
+.student-info-field {
+  border-bottom: 1.5px solid #D6C2CE;
+  padding: 0 8px 2px 8px;
+  min-width: 90px;
+  display: inline-block;
+}
+
+/* 9문제 3x3 그리드 */
+.problems-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  justify-content: center;
+}
+
+/* 개별 문제 카드 */
+.problem-card {
+  background: #FCF9FA;
+  border: 1.5px solid #F1DCE3;
+  border-radius: var(--radius-md);
+  padding: 16px 14px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.problem-card:hover {
+  background: #FFFFFF;
+  border-color: var(--accent-pink);
+  box-shadow: 0 4px 12px rgba(255, 181, 194, 0.25);
+}
+
+.problem-number {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #8B789E;
+  background: #FFFFFF;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #EADBDF;
+}
+
+.problem-card-status {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   세로셈 (Vertical Multiplication) 정렬 레이아웃
+   ========================================================================== */
+.vertical-calc-table {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: 'Nanum Square Round', monospace;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #4A3B5C;
+  user-select: none;
+}
+
+/* 행(Row) 공통 스타일 */
+.calc-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 38px;
+  width: 140px;
+  position: relative;
+}
+
+.calc-digit {
+  width: 32px;
+  text-align: center;
+  display: inline-block;
+}
+
+.calc-operator {
+  position: absolute;
+  left: 6px;
+  font-size: 1.3rem;
+  color: #D16B88;
+  font-weight: 900;
+}
+
+/* 세로셈 구분선 */
+.calc-divider {
+  width: 140px;
+  height: 2px;
+  background-color: #554466;
+  margin: 3px 0;
+  border-radius: 2px;
+}
+
+/* 빈칸(□) 입력 박스 스타일 */
+.calc-box-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 38px;
+  width: 140px;
+  gap: 2px;
+}
+
+.box-input {
+  width: 32px;
+  height: 32px;
+  border: 1.8px solid #B0A0C0;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  text-align: center;
+  font-family: 'Nanum Square Round', monospace;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #382B45;
+  outline: none;
+  transition: all 0.15s ease;
+  padding: 0;
+}
+
+.box-input:focus {
+  border-color: #E85D83;
+  background-color: #FFF2F5;
+  box-shadow: 0 0 0 3px rgba(255, 181, 194, 0.4);
+}
+
+.box-input.correct {
+  border-color: #58B368;
+  background-color: #EEF8F0;
+  color: #2D6336;
+}
+
+.box-input.wrong {
+  border-color: #E25C5C;
+  background-color: #FDF0F0;
+  color: #C0392B;
+}
+
+.box-input:disabled {
+  background-color: #F7F5F8;
+  cursor: default;
+}
+
+/* 빈 공간 자리수 맞춤용 */
+.box-spacer {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+}
+
+/* 단계 보조 설명 힌트(작은 텍스트) */
+.step-hint {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #A393B5;
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   답지 (Answer Key) 페이지 스타일
+   ========================================================================== */
+.answer-page-sheet {
+  background-color: #FFFFFF;
+  border: 2px solid #E8D0DF;
+}
+
+.answer-grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.answer-page-col {
+  background: #FCF9FA;
+  border-radius: var(--radius-sm);
+  padding: 14px 10px;
+  border: 1px solid #F1DCE3;
+}
+
+.answer-page-title {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #7D4C66;
+  border-bottom: 1.5px dashed #F1C4D1;
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+}
+
+.answer-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.88rem;
+}
+
+.answer-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: #FFFFFF;
+  border: 1px solid #F6E6EC;
+}
+
+.answer-item-num {
+  font-weight: 700;
+  color: #8C7A9E;
+}
+
+.answer-item-val {
+  font-weight: 800;
+  color: #D14B72;
+}
+
+/* 푸터 */
+.app-footer {
+  text-align: center;
+  padding: 24px;
+  color: #9F8EAF;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   A4 인쇄 전용 CSS (@media print)
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 10mm 12mm 10mm;
+  }
+
+  body {
+    background: none !important;
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .worksheet-container {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  /* 각 페이지가 정확히 A4 1장에 인쇄되도록 설정 */
+  .page-sheet {
+    box-shadow: none !important;
+    border: 1px solid #D1C5D8 !important;
+    border-radius: 12px !important;
+    padding: 16px 20px 20px 20px !important;
+    margin: 0 !important;
+    height: 270mm !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+  }
+
+  .page-sheet:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  .sheet-header {
+    margin-bottom: 15px !important;
+    padding-bottom: 10px !important;
+    border-bottom: 1.5px solid #888888 !important;
+  }
+
+  .sheet-title {
+    font-size: 1.4rem !important;
+    color: #222222 !important;
+  }
+
+  .sheet-meta-info {
+    color: #444444 !important;
+  }
+
+  .student-info-field {
+    border-bottom: 1.5px solid #444444 !important;
+  }
+
+  .problems-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 14px 18px !important;
+    flex-grow: 1 !important;
+    align-content: space-between !important;
+  }
+
+  .problem-card {
+    background: #FFFFFF !important;
+    border: 1px solid #CCCCCC !important;
+    border-radius: 8px !important;
+    padding: 10px 8px 12px 8px !important;
+    box-shadow: none !important;
+  }
+
+  .problem-number {
+    border: 1px solid #999999 !important;
+    color: #333333 !important;
+  }
+
+  .vertical-calc-table {
+    font-size: 1.35rem !important;
+    color: #000000 !important;
+  }
+
+  .calc-row, .calc-box-row {
+    height: 32px !important;
+    width: 125px !important;
+  }
+
+  .calc-digit, .box-spacer {
+    width: 28px !important;
+  }
+
+  .calc-divider {
+    width: 125px !important;
+    height: 2px !important;
+    background-color: #000000 !important;
+  }
+
+  .calc-operator {
+    color: #000000 !important;
+  }
+
+  /* 프린트용 네모칸 */
+  .box-input {
+    width: 28px !important;
+    height: 28px !important;
+    border: 1.5px solid #555555 !important;
+    border-radius: 4px !important;
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 1.15rem !important;
+  }
+
+  .answer-page-col {
+    background: #FFFFFF !important;
+    border: 1px solid #CCCCCC !important;
+  }
+
+  .answer-item {
+    border: 1px solid #E0E0E0 !important;
+  }
+
+  .answer-item-val {
+    color: #000000 !important;
+  }
+}
